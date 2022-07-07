@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ImportResource;
 
 // 表示当前类作为配置类使用的：配置容器
 @Configuration
-@ImportResource(value = "classpath:applicationContext.xml")
+@ImportResource(value = {"classpath:applicationContext.xml", "classpath:beans.xml"})
 public class SpringConfig {
 
     /*
