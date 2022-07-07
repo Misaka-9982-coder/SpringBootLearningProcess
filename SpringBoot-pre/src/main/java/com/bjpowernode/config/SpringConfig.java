@@ -1,14 +1,14 @@
 package com.bjpowernode.config;
 
 import com.bjpowernode.vo.Student;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.*;
 
 
 // 表示当前类作为配置类使用的：配置容器
 @Configuration
 @ImportResource(value = {"classpath:applicationContext.xml", "classpath:beans.xml"})
+@PropertySource(value = {"classpath:config.properties"})
+@ComponentScan(basePackages = "com.bjpowernode.vo")
 public class SpringConfig {
 
     /*
