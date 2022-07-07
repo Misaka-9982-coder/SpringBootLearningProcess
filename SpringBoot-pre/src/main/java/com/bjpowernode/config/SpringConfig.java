@@ -3,10 +3,12 @@ package com.bjpowernode.config;
 import com.bjpowernode.vo.Student;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
 
 // 表示当前类作为配置类使用的：配置容器
 @Configuration
+@ImportResource(value = "classpath:applicationContext.xml")
 public class SpringConfig {
 
     /*

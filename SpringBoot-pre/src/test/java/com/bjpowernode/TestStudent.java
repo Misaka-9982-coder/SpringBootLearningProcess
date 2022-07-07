@@ -1,6 +1,7 @@
 package com.bjpowernode;
 
 import com.bjpowernode.config.SpringConfig;
+import com.bjpowernode.vo.Cat;
 import com.bjpowernode.vo.Student;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -28,5 +29,12 @@ public class TestStudent {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         Student student = (Student) ctx.getBean("LiSiStudent");
         System.out.println("使用JavaConfig创建的对象：" + student);
+    }
+
+    @Test
+    public void testImportResource() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
+        Cat cat = (Cat) ctx.getBean("myCat");
+        System.out.println("cat == " + cat);
     }
 }
