@@ -11,8 +11,6 @@
     <groupId>com.bjpowernode</groupId>
     <artifactId>springboot-mapperscan</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-mapper</name>
-    <description>springboot-mapper</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -48,7 +46,7 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
-                    <include>**/*.xml</include>
+                    <include>**/*.*</include>
                 </includes>
             </resource>
         </resources>
