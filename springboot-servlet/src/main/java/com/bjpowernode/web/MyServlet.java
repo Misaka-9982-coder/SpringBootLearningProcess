@@ -22,6 +22,7 @@ public class MyServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
         PrintWriter out = resp.getWriter();
         out.println("<h1>Hello World!</h1>");
+        out.println("<h2>Hello World!</h2>");
         out.flush();
         out.close();
     }
