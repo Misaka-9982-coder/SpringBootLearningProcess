@@ -24,6 +24,5 @@ public class SpringbootCommandlinerunnerApplication implements CommandLineRunner
         String str = helloService.sayHello("张三");
         System.out.println("Hello World!" + str);
         System.out.println("The End!");
-
     }
 }
