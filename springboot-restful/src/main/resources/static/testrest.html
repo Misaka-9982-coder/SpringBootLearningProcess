@@ -6,8 +6,16 @@
 </head>
 <body>
     <h3>test restful</h3>
-    <form action="student/test" method="put">
-        <input type="submit" value="test request method">
+    <form action="student/test" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <input type="submit" value="test request method put">
+    </form>
+
+    <br>
+
+    <form action="student/testDelete" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="test request method delete">
     </form>
 </body>
 </html>

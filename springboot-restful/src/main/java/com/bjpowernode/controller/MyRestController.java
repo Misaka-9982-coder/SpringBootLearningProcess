@@ -46,4 +46,9 @@ public class MyRestController {
     public String test() {
         return "test, use the put method to test";
     }
+
+    @DeleteMapping("/student/testDelete")
+    public String testDelete() {
+        return "test, use the delete method to test";
+    }
 }
