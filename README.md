@@ -200,11 +200,6 @@ SpringBoot是Spring中的一个成员， 可以简化Spring，SpringMVC的使用
 
 
 
-SpringBoot项目的结构：
-
-![image-20210115152427829](images\image-20210115152427829.png)	
-
-
 
 
 
@@ -213,8 +208,6 @@ SpringBoot项目的结构：
 
 
 https://start.springboot.io
-
-![image-20210115155556662](images\image-20210115155556662.png)	
 
 
 
@@ -1453,7 +1446,6 @@ dubbo.registry.address=zookeeper://localhost:2181
 
 Student表：
 
-![image-20210119150418295](images\image-20210119150418295.png)	
 
 CREATE TABLE `student` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
