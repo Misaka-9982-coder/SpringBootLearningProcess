@@ -1,8 +1,10 @@
 package com.bjpowernode.controller;
 
+import com.bjpowernode.vo.Student;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -80,4 +82,36 @@ public class RedisController {
 
         return "use Serializer's RedisTemplate add key-value";
      }
+
+    /**
+     * 使用 JSON 序列化，把 Java 对象转换成 JSON 字符串
+     */
+    @PostMapping("/redis/addJson")
+    public String addJson() {
+        Student student = new Student();
+        student.setId(10);
+        student.setName("六三");
+        student.setAge(20);
+
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+
+        // 设置 value 的序列化方式
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer(Student.class) );
+
+        redisTemplate.opsForValue().set("myStudent", student);
+
+        return "use JSON RedisTemplate add key-value";
+    }
+
+    @GetMapping("/redis/getJson")
+    public String getJson() {
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+
+        // 设置 value 的序列化方式
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer(Student.class) );
+
+        Object myStudent = redisTemplate.opsForValue().get("myStudent");
+
+        return "use JSON RedisTemplate get key-value, student = " + myStudent;
+    }
 }
