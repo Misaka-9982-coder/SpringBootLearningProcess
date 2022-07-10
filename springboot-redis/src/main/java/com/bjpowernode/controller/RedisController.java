@@ -3,6 +3,7 @@ package com.bjpowernode.controller;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,4 +62,22 @@ public class RedisController {
 
         return "use StringRedisTemplate get key-value, key = " + key + " value = " + value;
     }
+
+    /**
+     * 设置 RedisTemplate 的序列化方式
+     * 可以分别或者同时设置 key 或 value 的序列化方式
+     */
+    @PostMapping("/redis/setSerializer")
+     public String addString(String key, String value) {
+
+         // 设置 key 的序列化方式
+         redisTemplate.setKeySerializer(new StringRedisSerializer());
+
+        // 设置 value 的序列化方式
+        redisTemplate.setValueSerializer(new StringRedisSerializer());
+
+        redisTemplate.opsForValue().set(key, value);
+
+        return "use Serializer's RedisTemplate add key-value";
+     }
 }
