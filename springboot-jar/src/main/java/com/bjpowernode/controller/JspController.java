@@ -5,12 +5,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class JspController {
 
-    @RequestMapping("/index")
+    @RequestMapping("/hello")
     public ModelAndView hello() {
         ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.addObject("data", "hello");
-        modelAndView.setViewName("index.jsp");
+        modelAndView.setViewName("index");
 
         return modelAndView;
     }
